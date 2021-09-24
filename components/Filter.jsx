@@ -3,7 +3,7 @@ import API_URL from "../constants";
 import Head from "next/head";
 import Image from "next/image";
 import Loading from "./Loading";
-import WeatherDetails from "../components/WeatherData";
+import WeatherDetails from "../components/weatherdata.jsx";
 
 function Filter({ onSearchLocation, onUpdateSearch , Clicked } ) {
   // 

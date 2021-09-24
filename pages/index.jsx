@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import classNames from "classnames";
-import WeatherDetails from "../components/WeatherData";
-import Loading from "../components/Loading";
+import WeatherDetails from "../components/weatherdata.jsx";
 import { API_URL, ApiKey } from "../constants";
-
+import Loading from "../components/Loading";
 import Filter from "../components/Filter";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function App() {
   const [isLoading, setIsLoeading] = useState(false);
@@ -37,7 +36,7 @@ export default function App() {
   }
 
   return (
-    <main className="text-center z-100 ">
+    <main >
       <h1
         className="inset-y-48 m-6 md:inset-48  font-serif  absolute text-2xl font-bold  text-green-50   "
         data-aos="fade-down"

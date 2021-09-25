@@ -4,7 +4,7 @@ function WeatherDetails({ temp, Description, clouds, wind, humidity }) {
   return (
     <div
       data-aos="flip-left"
-      className="top-72  text-xl absolute w-screen md:top-96 md:text-xl  font-serif  font-bold  text-green-50 z-0 "
+      className="top-72  text-xl absolute w-screen md:top-96 md:text-xl  font-mono  font-bold  text-green-50 z-0 "
     >
       <h3>Weather Details</h3>
       <p>Temperature : {temp}K</p>

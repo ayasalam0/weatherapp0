@@ -25,29 +25,46 @@ export default function App() {
   };
 
   return (
-    <main>
-      <h1
-        className="inset-y-8 m-6 md:inset-48  font-serif  absolute text-2xl font-bold  text-green-50   "
-        data-aos="fade-down"
-      >
-        Search for weather informatios{" "}
-      </h1>
-      <Filter
-        onUpdateSearch={onUpdateSearch}
-        onSearchLocation={onSearchLocation}
-      />
+    <>
+      <Head>
+        <title>Weather.io</title>
+        <link rel="icon" href="/weather.svg  " />
+        "/>
+        <meta property="og:title" content="weatherapp" key="title" />
+      </Head>
 
-      {isLoading && weatherData.main ? (
-        <WeatherDetails
-          temp={weatherData.main.temp}
-          Description={weatherData.weather[0].main}
-          clouds={weatherData.clouds.all}
-          humidity={weatherData.main.humidity}
-          wind={weatherData.wind.speed}
+      <main>
+        <h1
+          className="inset-4   md:inset-24 absolute text-5xl font-bold  text-green-50   "
+          style={{
+            fontFamily: "cursive",
+            fontStyle: "italic"
+          }}
+        >
+          Weather.io{" "}
+        </h1>
+        <h1 className=" text-l  inset-14 m-6 md:inset-48    absolute md:text-2xl font-bold  text-green-50    " 
+       
+        >
+          Search for weather informatios{" "}
+        </h1>
+        <Filter
+          onUpdateSearch={onUpdateSearch}
+          onSearchLocation={onSearchLocation}
         />
-      ) : (
-        <Loading />
-      )}
-    </main>
+
+        {isLoading && weatherData.main ? (
+          <WeatherDetails
+            temp={weatherData.main.temp}
+            Description={weatherData.weather[0].main}
+            clouds={weatherData.clouds.all}
+            humidity={weatherData.main.humidity}
+            wind={weatherData.wind.speed}
+          />
+        ) : (
+          <Loading />
+        )}
+      </main>
+    </>
   );
 }

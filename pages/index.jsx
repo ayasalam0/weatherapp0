@@ -29,7 +29,7 @@ export default function App() {
       <Head>
         <title>WeatherIO</title>
         <link rel="icon" href="/weather.svg  " />
-        "/>
+        
         <meta property="og:title" content="weatherapp" key="title" />
       </Head>
 

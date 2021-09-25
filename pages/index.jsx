@@ -27,7 +27,7 @@ export default function App() {
   return (
     <>
       <Head>
-        <title>Weather.io</title>
+        <title>WeatherIO</title>
         <link rel="icon" href="/weather.svg  " />
         "/>
         <meta property="og:title" content="weatherapp" key="title" />

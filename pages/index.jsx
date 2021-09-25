@@ -23,22 +23,11 @@ export default function App() {
     console.log(weatherData);
     console.log(temp);
   };
-  const [Input, setInput] = useState();
-  function Clicked() {
-    if (Input === false) {
-      setInput("!Input");
-      return;
-    }
-    setInput(true);
-    setInput(!Input);
-
-    console.log(Input);
-  }
 
   return (
-    <main >
+    <main>
       <h1
-        className="inset-y-48 m-6 md:inset-48  font-serif  absolute text-2xl font-bold  text-green-50   "
+        className="inset-y-8 m-6 md:inset-48  font-serif  absolute text-2xl font-bold  text-green-50   "
         data-aos="fade-down"
       >
         Search for weather informatios{" "}
@@ -46,7 +35,6 @@ export default function App() {
       <Filter
         onUpdateSearch={onUpdateSearch}
         onSearchLocation={onSearchLocation}
-        Clicked={Clicked}
       />
 
       {isLoading && weatherData.main ? (
@@ -56,7 +44,6 @@ export default function App() {
           clouds={weatherData.clouds.all}
           humidity={weatherData.main.humidity}
           wind={weatherData.wind.speed}
-          Input={Input}
         />
       ) : (
         <Loading />

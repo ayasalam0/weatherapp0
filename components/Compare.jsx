@@ -1,5 +1,4 @@
 import React, { useState, useEffect,useContext } from "react";
-import Filter from "../components/Filter/Filter";
 import { ApiContext } from "../ApiContext.js";
 const Compare = () => {
   const { onUpdateSearch, onSearchLocation } = useContext(ApiContext);

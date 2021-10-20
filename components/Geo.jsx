@@ -2,13 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { ApiContext } from "../ApiContext.js";
 
 const Geo = () => {
-  const {
-    onUpdateSearch,
-    onSearchLocation,
-    onUpdategeo,
-    isLoading,
-    weatherData,
-  } = useContext(ApiContext);
+  const { onSearchLocation, onUpdategeo, Location } = useContext(ApiContext);
   const [status, setStatus] = useState(null);
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);

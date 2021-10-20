@@ -16,6 +16,7 @@ function ApiProvider(props) {
   function onUpdategeo(lat, lon) {
     setLat(lat);
     setLon(lon);
+    setLocation("")
   }
   const onSearchLocation = () => {
     fetch(
@@ -27,7 +28,7 @@ function ApiProvider(props) {
   };
 
   return (
-    <ApiContext.Provider  value={{onUpdateSearch , onSearchLocation , onUpdategeo , isLoading , weatherData ,  }}>
+    <ApiContext.Provider  value={{onUpdateSearch , onSearchLocation , onUpdategeo , isLoading , weatherData }}>
       {props.children}
     </ApiContext.Provider >
   );

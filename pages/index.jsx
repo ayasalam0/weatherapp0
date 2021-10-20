@@ -5,7 +5,7 @@ import ApiProvider from "../ApiContext.js";
 import Image from "next/image";
 import classNames from "classnames";
 import Loading from "../components/Loading";
-import Filter from "../components/Filter/Filter.jsx";
+import Filter from "../components/Filter.jsx";
 import React, { useState, useContext } from "react";
 import Geo from "../components/Geo.jsx";
 import { ApiContext } from "../ApiContext.js";

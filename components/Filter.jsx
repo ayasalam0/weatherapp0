@@ -1,14 +1,27 @@
 import React, { useEffect, useState, useContext } from "react";
 import Select from "react-select";
-import API_URL from "../../constants";
+import API_URL from "../constants";
 import Head from "next/head";
 import Image from "next/image";
-import Loading from "../Loading";
-import countries from "../../Data/countries.json";
-import { ApiContext } from "../../ApiContext.js";
-import SearchApi from "./SearchApi"
+import Loading from "./Loading";
+import countries from "../Data/countries.json";
+import { ApiContext } from "../ApiContext.js";
 function Filter() {
-const {onUpdateSearch , onSearchLocation } = useContext(ApiContext);
+  const [change, setchange] = useState();
+  const { onUpdateSearch, onSearchLocation } = useContext(ApiContext);
+  const handleLocationChange = (event) => {
+    onUpdateSearch(event.target.value);
+  };
+  function selectedChanged(e) {
+    setchange(e.target.value);
+  }
+  useEffect(
+    (e) => {
+      onUpdateSearch(change);
+    },
+    [change]
+  );
+
   return (
     <main>
       <div>

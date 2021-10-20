@@ -18,29 +18,29 @@ function Filter() {
   useEffect(
     (e) => {
       onUpdateSearch(change);
+      console.log(change)
     },
     [change]
   );
 
   return (
     <main>
-      <div>
+      <div className="space-x-24">
         <input
           type="search"
           placeholder="Search..."
           onChange={handleLocationChange}
         />
-        <button onClick={onSearchLocation}>
-          <Image src="/loupe.svg" alt="universe" width={30} height={30} />
-        </button>
-      </div>
-      <div className="absolute ">
-        <select onChange={selectedChanged}>
+         <select onChange={selectedChanged}>
           {countries.map((e) => (
             <option value={e.name}>{e.name}</option>
           ))}
         </select>
+        <button onClick={onSearchLocation}>
+          <Image src="/loupe.svg" alt="universe" width={30} height={30} />
+        </button>
       </div>
+     
     </main>
   );
 }

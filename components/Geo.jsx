@@ -2,7 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import { ApiContext } from "../ApiContext.js";
 
 const Geo = () => {
-  const { onSearchLocation, onUpdategeo, Location } = useContext(ApiContext);
+  const {
+    onSearchLocation,
+    onUpdategeo,
+    setLocation,
+  } = useContext(ApiContext);
   const [status, setStatus] = useState(null);
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
@@ -16,6 +20,7 @@ const Geo = () => {
           setStatus(null);
           setLat(position.coords.latitude);
           setLon(position.coords.longitude);
+          setLocation("")
         },
         () => {
           setStatus("Unable to retrieve your location");

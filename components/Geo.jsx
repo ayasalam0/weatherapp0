@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ApiContext } from "../ApiContext.js";
-
 const Geo = () => {
   const {
     onSearchLocation,

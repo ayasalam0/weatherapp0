@@ -1,5 +1,6 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ApiContext } from "../ApiContext.js";
+import DataDisplay from "../components/DataDisplay.jsx";
 const Compare = () => {
   const { onUpdateSearch, onSearchLocation } = useContext(ApiContext);
   const [inputFields, setInputFields] = useState([]);
@@ -8,12 +9,16 @@ const Compare = () => {
 
   function changed(e) {
     setinput(e.target.value);
-    console.log("object");
+    onUpdateSearch(input)
+    console.log(input);
   }
   function clicked(e) {
-    setcityDisplay(input);
+    onSearchLocation()
+    setcityDisplay(<DataDisplay/>);
+
   }
   useEffect(() => {
+    
     setInputFields([...inputFields, cityDisplay]);
     console.log(input);
   }, [cityDisplay]);
@@ -23,8 +28,8 @@ const Compare = () => {
       <input type="text" value={input} onChange={changed} />
       <button onClick={clicked}>click </button>
       {inputFields.map((e) => {
-        return <p>{e}</p>;
-      })} 
+        return (e);
+      })}
     </div>
   );
 };

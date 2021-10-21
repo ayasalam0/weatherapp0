@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { ApiContext } from "../ApiContext.js";
 const Geo = () => {
   const { onSearchLocation, onUpdategeo, setLocation } = useContext(ApiContext);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState("plese try again");
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
   const getLocation = () => {
@@ -20,6 +20,7 @@ const Geo = () => {
         },
         () => {
           setStatus("Unable to retrieve your location");
+          alert(status)
         }
       );
     }
@@ -27,8 +28,10 @@ const Geo = () => {
   useEffect(() => {
     onUpdategeo(lat, lon);
   }, [getLocation]);
+  
   return (
     <div className="flex flex-row  justify-center w-screen  ">
+      
       <button
         className=" bg-blue-300 w-3/4 text-center rounded-full h-10  "
         onClick={getLocation}

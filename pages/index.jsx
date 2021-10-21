@@ -14,11 +14,13 @@ export default function App() {
   return (
     <>
       <ApiProvider>
-        <main className="flex  space-y-22 flex-col text-center ">
+        <main className="flex  space-y-22 flex-col p-4 ">
           <Filter />
-          <DataDisplay />
+          <div className=" space-y-4">
           <Geo />
           <Compare />
+          </div>
+          
         </main>
       </ApiProvider>
     </>

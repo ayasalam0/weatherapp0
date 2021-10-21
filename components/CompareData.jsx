@@ -2,24 +2,22 @@ import React, { useState, useContext } from "react";
 import { ApiContext } from "../ApiContext.js";
 
 import Loading from "./Loading.jsx";
-const DataDisplay = () => {
+const CompareData = () => {
   const {
-    onUpdateSearch,
-    onSearchLocation,
-    onUpdategeo,
-    isLoading,
-    weatherData,
+   
+    display,
+
   } = useContext(ApiContext);
   return (
     <main>
-      {isLoading && weatherData.main ? (
+      {display.main ? (
         <div>
-          <h1>country : {weatherData.name}</h1>
-          <p>Temperature : {weatherData.main.temp}K</p>
-          <p>Clouds :{weatherData.weather[0].main}</p>
-          <p>Cloudy: %{weatherData.clouds.all}</p>
-          <p>Wind Speed:{weatherData.wind.speed} m/min</p>
-          <p>Humidity: {weatherData.main.humidity}</p>
+          <h1>country : {display.name}</h1>
+          <p>Temperature : {display.main.temp}K</p>
+          <p>Clouds :{display.weather[0].main}</p>
+          <p>Cloudy: %{display.clouds.all}</p>
+          <p>Wind Speed:{display.wind.speed} m/min</p>
+          <p>Humidity: {display.main.humidity}</p>
         </div>
       ) : (
         <Loading />
@@ -28,4 +26,4 @@ const DataDisplay = () => {
   );
 };
 
-export default DataDisplay;
+export default CompareData;

@@ -3,17 +3,11 @@ import { ApiContext } from "../ApiContext.js";
 
 import Loading from "./Loading.jsx";
 const DataDisplay = () => {
-  const {
-    onUpdateSearch,
-    onSearchLocation,
-    onUpdategeo,
-    isLoading,
-    weatherData,
-  } = useContext(ApiContext);
+  const { weatherData } = useContext(ApiContext);
   return (
     <main>
-      {isLoading && weatherData.main ? (
-        <div>
+      {weatherData.main ? (
+        <div className=" m-6 p-4  bg-mygreen  rounded-xl text-center  shadow-xl  ">
           <h1>country : {weatherData.name}</h1>
           <p>Temperature : {weatherData.main.temp}K</p>
           <p>Clouds :{weatherData.weather[0].main}</p>

@@ -37,7 +37,7 @@ function ApiProvider(props) {
       .then((res) => res.json())
       .then((res) => setComaprables((old) => [...old, res]));
   };
-
+  
   return (
     <ApiContext.Provider
       value={{

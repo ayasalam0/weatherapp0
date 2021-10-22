@@ -48,20 +48,26 @@ const Compare = () => {
               </button>{" "}
             </div>
 
-            {Comaprables.map((e) => {
-              return (
-                <div >
-                  <CompareData
-                    name={e.name}
-                    tempr={e.main.temp}
-                    clouds={e.weather[0].main}
-                    cloudy={e.clouds.all}
-                    wind={e.wind.speed}
-                    humidity={e.main.humidity}
-                  />
-                </div>
-              );
-            })}
+            {Comaprables.length < 7 ? (
+              <div>
+                {Comaprables.map((e) => {
+                  return (
+                    <div>
+                      <CompareData
+                        name={e.name}
+                        tempr={e.main.temp}
+                        clouds={e.weather[0].main}
+                        cloudy={e.clouds.all}
+                        wind={e.wind.speed}
+                        humidity={e.main.humidity}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+             alert("You Can't Add More Than 7 Comparisons ")
+            )}
           </>
         ) : null}
       </div>

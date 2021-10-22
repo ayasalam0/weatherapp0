@@ -2,22 +2,17 @@
 @tailwind components;
 @tailwind utilities;
  
+
 html,
 body {
-  background-image: url("../public/F4uhSOY.jpeg");
+  background-image: url("../public/BG.svg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #F8F7F7 
 
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    text-align: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
-* {
-  box-sizing: border-box;
-}

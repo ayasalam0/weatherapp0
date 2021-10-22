@@ -1,31 +1,91 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 import API_URL from "../constants";
 import Head from "next/head";
 import Image from "next/image";
-import Loading from "./Loading";
-import WeatherDetails from "../components/weatherdata.jsx";
+import countries from "../Data/countries.json";
+import { ApiContext } from "../Context/ApiContext.js";
+import DataDisplay from "../components/DataDisplay.jsx";
 
-function Filter({ onSearchLocation, onUpdateSearch }) {
-  const handleLocationChange = (event) => {
-    onUpdateSearch(event.target.value);
-  };
+function Filter() {
+  const { onSearchLocation, OnDropdownChange } = useContext(ApiContext);
+  const [QuerySearch, setQuerySearch] = useState("");
+  const [dropdown, setdropdown] = useState(false);
+  const [SelectedDropDown, setSelectedDropDown] = useState();
+
+  function LocationSearch(e) {
+    setQuerySearch(e.target.value);
+  }
+
+  function selectedChanged(e) {
+    OnDropdownChange(e.target.value);
+  }
+
+  function SearchButton() {
+    onSearchLocation(QuerySearch);
+  }
+  function DropState() {
+    setdropdown(true);
+    setdropdown(!dropdown);
+  }
+
+  const countriesArray = Object.entries(countries).map((e) => {
+    return e;
+  });
+
+  const CountriesFilter = countriesArray
+    .filter((e) => {
+      return e.includes(
+        QuerySearch.charAt(0).toUpperCase() + QuerySearch.slice(1)
+      );
+    })
+    .map((e) => {
+      return e;
+    });
 
   return (
-    <main className=" top-36  md:top-80 absolute w-screen    ">
-      <input
-        data-aos="fade-down"
-        className="p-4 rounded-xl  outline-none md:w-1/2 "
-        type="search"
-        placeholder="Search..."
-        onChange={handleLocationChange}
-      />
-      <button
-        data-aos="fade-left"
-        onClick={onSearchLocation}
-        className=" absolute p-4   py-2 "
-      >
-        <Image src="/loupe.svg" alt="universe" width={45} height={45} />
-      </button>
+    <main className="w-screen">
+      <div>
+        <div className="h-auto w-full space-x-2 flex pt-10 px-4 md:justify-center  lg:px-48   ">
+          <input
+            className=" outulne-none  p-2  w-3/4 bg-transparent border-b-2 border-blue-200 md:w-1/2   "
+            type="search"
+            placeholder="Search Your  Area Weather"
+            onChange={LocationSearch}
+          />
+          <button className="relative right-8" onClick={DropState}>
+            <IoIosArrowDown />
+          </button>
+          <button
+            className="  rounded-full text-white bg-mydarkblue w-20 h-10  text-sm font-semibold relative right-2  "
+            onClick={SearchButton}
+          >
+            {" "}
+            Search
+          </button>
+        </div>
+        <div>
+          {dropdown ? (
+            <div className="flex  w-screen md:justify-center px-4 lg:px-48 ">
+              <select
+                className="appearance-none bg-transparent p-4 ml-4  border-b-2 border-blue-200 outulne-none w-2/3  md:w-3/5   "
+                onChange={selectedChanged}
+              >
+                {CountriesFilter.map((e) => {
+                  return e[1].map((e) => {
+                    return <option value={e}>{e}</option>;
+                  });
+                })}
+              </select>
+              <span className="relative right-6  top-6 ">
+                <IoIosArrowDown />
+              </span>
+            </div>
+          ) : null}
+        </div>
+      </div>
+
+      <DataDisplay />
     </main>
   );
 }

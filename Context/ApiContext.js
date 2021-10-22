@@ -37,6 +37,12 @@ function ApiProvider(props) {
       .then((res) => res.json())
       .then((res) => setComaprables((old) => [...old, res]));
   };
+  try {
+  OnCompare();
+} catch (error) {
+  alert("Please Enter Valid Input");
+
+}
 
   return (
     <ApiContext.Provider

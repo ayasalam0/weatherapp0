@@ -8,6 +8,7 @@ const Compare = () => {
   const { OnCompare, Comaprables } = useContext(ApiContext);
   const [input, setinput] = useState("");
   const [CompareButtonState, setCompareButtonState] = useState(false);
+  const [AddCondition, setAddCondition] = useState(false);
 
   function CompareCities() {
     setCompareButtonState(true);
@@ -16,10 +17,13 @@ const Compare = () => {
 
   function CompareSearch(e) {
     setinput(e.target.value);
+    setAddCondition(true);
   }
 
   const CompareRequest = () => {
     OnCompare(input);
+    setAddCondition(true);
+    setAddCondition(!AddCondition);
   };
   return (
     <main>
@@ -43,11 +47,12 @@ const Compare = () => {
                 value={input}
                 onChange={CompareSearch}
               />
-              <button className="relative right-8 " onClick={CompareRequest}>
-                <IoIosAdd />
-              </button>{" "}
+              {AddCondition ? (
+                <button className="relative right-8 " onClick={CompareRequest}>
+                  <IoIosAdd />
+                </button>
+              ) : null}
             </div>
-
             {Comaprables.length < 7 ? (
               <div>
                 {Comaprables.map((e) => {
@@ -66,7 +71,7 @@ const Compare = () => {
                 })}
               </div>
             ) : (
-             alert("You Can't Add More Than 7 Comparisons ")
+              alert("You Can't Add More Than 7 Comparisons ")
             )}
           </>
         ) : null}

@@ -52,7 +52,7 @@ function Filter() {
           <input
             className=" outulne-none  p-2  w-3/4 bg-transparent border-b-2 border-blue-200 md:w-1/2   "
             type="search"
-            placeholder="Search..."
+            placeholder="Search Your Weather Area "
             onChange={LocationSearch}
           />
           <button className="relative right-8" onClick={DropState}>

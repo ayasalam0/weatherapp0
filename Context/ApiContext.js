@@ -15,7 +15,13 @@ function ApiProvider(props) {
       .then((res) => res.json())
       .then((res) => setWeatherData(res));
   };
-   
+  const OnDropdownChange = (DropValue) => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?&q=${DropValue}&appid=${ApiKey}`
+    )
+      .then((res) => res.json())
+      .then((res) => setWeatherData(res));
+  };
 
   const onGeoSearch = (Lat, Lon) => {
     fetch(
@@ -30,7 +36,7 @@ function ApiProvider(props) {
     )
       .then((res) => res.json())
       .then((res) => setComaprables((old) => [...old, res]));
-  }; 
+  };
 
   return (
     <ApiContext.Provider
@@ -40,8 +46,8 @@ function ApiProvider(props) {
         weatherData,
         OnCompare,
         setcompareLocation,
-        Comaprables
-       
+        Comaprables,
+        OnDropdownChange,
       }}
     >
       {props.children}

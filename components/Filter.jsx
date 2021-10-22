@@ -8,12 +8,11 @@ import { ApiContext } from "../Context/ApiContext.js";
 import DataDisplay from "../components/DataDisplay.jsx";
 
 function Filter() {
-  const { onSearchLocation } = useContext(ApiContext);
+  const { onSearchLocation , OnDropdownChange } = useContext(ApiContext);
 
   const [QuerySearch, setQuerySearch] = useState("");
 
   const [dropdown, setdropdown] = useState(false);
-  const [DropdownSearchValue, setDropdownSearchValue] = useState("");
   const [SelectedDropDown, setSelectedDropDown] = useState();
 
   function LocationSearch(e) {
@@ -21,16 +20,18 @@ function Filter() {
   }
 
   function selectedChanged(e) {
-    setQuerySearch(e.target.value);
+   OnDropdownChange(e.target.value);
   }
 
   function SearchButton() {
     onSearchLocation(QuerySearch);
+    
   }
   function DropState() {
     setdropdown(true);
     setdropdown(!dropdown);
   }
+
 
   const countriesArray = Object.entries(countries).map((e) => {
     return e;

@@ -8,7 +8,7 @@ import { ApiContext } from "../Context/ApiContext.js";
 import DataDisplay from "../components/DataDisplay.jsx";
 
 function Filter() {
-  const { onSearchLocation, OnDropdownChange } = useContext(ApiContext);
+  const { onSearchLocation } = useContext(ApiContext);
 
   const [QuerySearch, setQuerySearch] = useState("");
 
@@ -21,12 +21,11 @@ function Filter() {
   }
 
   function selectedChanged(e) {
-    setDropdownSearchValue(e.target.value);
+    setQuerySearch(e.target.value);
   }
 
   function SearchButton() {
     onSearchLocation(QuerySearch);
-    OnDropdownChange(DropdownSearchValue);
   }
   function DropState() {
     setdropdown(true);
@@ -39,7 +38,9 @@ function Filter() {
 
   const CountriesFilter = countriesArray
     .filter((e) => {
-      return e.includes(QuerySearch);
+      return e.includes(
+        QuerySearch.charAt(0).toUpperCase() + QuerySearch.slice(1)
+      );
     })
     .map((e) => {
       return e;
@@ -52,14 +53,14 @@ function Filter() {
           <input
             className=" outulne-none  p-2  w-3/4 bg-transparent border-b-2 border-blue-200 md:w-1/2   "
             type="search"
-            placeholder="Search Your Weather Area "
+            placeholder="Search Your  Area Weather"
             onChange={LocationSearch}
           />
           <button className="relative right-8" onClick={DropState}>
             <IoIosArrowDown />
           </button>
           <button
-            className="  rounded-full bg-mydarkblue w-20 h-10  text-sm font-semibold relative right-2  "
+            className="  rounded-full text-white bg-mydarkblue w-20 h-10  text-sm font-semibold relative right-2  "
             onClick={SearchButton}
           >
             {" "}

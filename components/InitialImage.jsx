@@ -15,7 +15,7 @@ const InitialImage = () => {
           src="/undraw_Autumn_re_rwy0.svg"
           alt="Picture of the author"
           width={500}
-          height={500}
+          height={430}
         />
       </div>
     </div>

@@ -5,7 +5,12 @@
 
 html,
 body {
-  background-color:"F9F9F9";
+  background-image: url("../public/bg.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
 }
 

@@ -1,27 +1,27 @@
-import Head from "next/head";
-import Dropdown from "react-dropdown";
-import Compare from "../components/Compare.jsx";
-import ApiProvider from "../ApiContext.js";
-import Image from "next/image";
-import classNames from "classnames";
-import Loading from "../components/Loading";
-import Filter from "../components/Filter.jsx";
 import React, { useState, useContext } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import ApiProvider from "../Context/ApiContext.js";
+import Compare from "../components/Compare.jsx";
+import Filter from "../components/Filter.jsx";
 import Geo from "../components/Geo.jsx";
-import { ApiContext } from "../ApiContext.js";
 import DataDisplay from "../components/DataDisplay.jsx";
+
 export default function App() {
   return (
     <>
       <ApiProvider>
-        <main className="flex  space-y-22 flex-col p-4 ">
+        <div className="h-screen  ">
           <Filter />
-          <div className=" space-y-4">
-          <Geo />
-          <Compare />
+
+          <h1 className="text-center text-myred pb-2 ">
+            Or Choose Another Way{" "}
+          </h1>
+          <div className="space-y-4">
+            <Geo />
+            <Compare />
           </div>
-          
-        </main>
+        </div>
       </ApiProvider>
     </>
   );

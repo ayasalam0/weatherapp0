@@ -1,39 +1,34 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ApiContext } from "../ApiContext.js";
+import { ApiContext } from "../Context/ApiContext.js";
 const Geo = () => {
-  const { onSearchLocation, onUpdategeo, setLocation } = useContext(ApiContext);
+  const { onGeoSearch } = useContext(ApiContext);
   const [status, setStatus] = useState("plese try again");
-  const [lat, setLat] = useState(null);
-  const [lon, setLon] = useState(null);
+  const [lat, setLat] = useState("");
+  const [lon, setLon] = useState("");
   const getLocation = () => {
     if (!navigator.geolocation) {
       setStatus("Geolocation is not supported by your browser");
     } else {
-      onSearchLocation();
+      onGeoSearch(lat, lon);
       setStatus("Locating...");
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setStatus(null);
           setLat(position.coords.latitude);
           setLon(position.coords.longitude);
-          setLocation("");
         },
         () => {
           setStatus("Unable to retrieve your location");
-          alert(status)
+          alert(status);
         }
       );
     }
   };
-  useEffect(() => {
-    onUpdategeo(lat, lon);
-  }, [getLocation]);
-  
+
   return (
-    <div className="flex flex-row  justify-center w-screen  ">
-      
+    <div className="flex  justify-center w-screen md:w-1/3 md:relative md:inset-x-1/3  ">
       <button
-        className=" bg-blue-300 w-3/4 text-center rounded-full h-10  "
+        className=" bg-myblue w-3/4 text-center rounded-full h-10   "
         onClick={getLocation}
       >
         {" "}

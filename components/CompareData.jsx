@@ -1,27 +1,19 @@
 import React, { useState, useContext } from "react";
-import { ApiContext } from "../ApiContext.js";
 
-import Loading from "./Loading.jsx";
-const CompareData = () => {
-  const {
-   
-    display,
-
-  } = useContext(ApiContext);
+const CompareData = (props) => {
   return (
-    <main>
-      {display.main ? (
-        <div>
-          <h1>country : {display.name}</h1>
-          <p>Temperature : {display.main.temp}K</p>
-          <p>Clouds :{display.weather[0].main}</p>
-          <p>Cloudy: %{display.clouds.all}</p>
-          <p>Wind Speed:{display.wind.speed} m/min</p>
-          <p>Humidity: {display.main.humidity}</p>
-        </div>
-      ) : (
-        <Loading />
-      )}
+    <main className="w-screen p-4    ">
+      <div
+        className="  bg-mygreen  rounded-xl text-center 
+       shadow-2xl md:w-1/3 md:relative md:inset-x-1/3 md:p-4 "
+      >
+        <h1>country : {props.name}</h1>
+        <p>Temperature : {props.tempr}K</p>
+        <p>Clouds :{props.clouds}</p>
+        <p>Cloudy: %{props.cloudy}</p>
+        <p>Wind Speed:{props.wind} m/min</p>
+        <p>Humidity: {props.humidity}</p>
+      </div>
     </main>
   );
 };

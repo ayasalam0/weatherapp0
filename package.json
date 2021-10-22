@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "all-countries-and-cities-json": "^1.0.0",
     "aos": "^2.3.4",
     "cities.json": "^1.1.5",
     "classnames": "^2.3.1",

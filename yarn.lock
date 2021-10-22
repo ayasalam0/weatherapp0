@@ -390,6 +390,11 @@
     "require-from-string" "^2.0.2"
     "uri-js" "^4.2.2"
 
+"all-countries-and-cities-json@^1.0.0":
+  "integrity" "sha512-0xumBE+FtIP3VLcxFP4pybITuFpqIjcEWokdus3dy/E5+4Yr9U9xQf6ZZDxfv1W1dMPS/1rPE6KPqYfs9EHKbQ=="
+  "resolved" "https://registry.npmjs.org/all-countries-and-cities-json/-/all-countries-and-cities-json-1.0.0.tgz"
+  "version" "1.0.0"
+
 "anser@1.4.9":
   "integrity" "sha512-AI+BjTeGt2+WFk4eWcqbQ7snZpDBt8SaLlj0RT2h5xfdWaiy51OjYvqwMrNzJLGy8iOAL6nKDITWO+rd4MkYEA=="
   "resolved" "https://registry.npmjs.org/anser/-/anser-1.4.9.tgz"
